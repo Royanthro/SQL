@@ -30,8 +30,9 @@ select distinct(Customer_ID) from shopping_behavior_edited where gender ='female
 select * from shopping_behavior_edited
 order by `Purchase_Amount_(USD)`, Age ,Frequency_Purchases asc;
 
-
-
+select distinct Payment_Method from shopping_behavior_edited 
+where Age<=20
+and gender = 'male';
 -- -------------------------------------------------------
 -- data aggregation--
 select Customer_ID, SUM(`Purchase_Amount_(USD)`) as Total_Purchase_Amount from shopping_behavior_edited group by Customer_ID;
@@ -45,6 +46,5 @@ drop column total_purchase;
 alter table shopping_behavior_edited
 add column total_purchase int;
 
--- now we will add the data aggregational value --
 
 
